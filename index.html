@@ -1,139 +1,71 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-  <title>問題1</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-  <link rel="stylesheet" href="assets/css/main.css" />
-  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-  <style>
-    /* 追加スタイル */
-    .problem-box {
-      border-top: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      padding: 1.5em 1em;
-      margin-top: 1em;
-      margin-bottom: 0.8em;
-    }
+  <head>
+    <title>問題1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+  </head>
+  <body class="is-preload">
 
-    .line-under {
-      height: 2px;
-      width: 100px;
-      background: #fff;
-      margin: 0 auto;
-      position: relative;
-    }
+    <!-- Wrapper -->
+    <div id="wrapper">
 
-    .line-vertical {
-      width: 2px;
-      height: 60px;
-      background: #fff;
-      margin: 0 auto;
-    }
-
-    #answer-form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-top: 1em;
-    }
-
-    #answer-form input[type="text"] {
-      background-color: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 0.7rem;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 0.5rem;
-      margin-bottom: 1rem;
-    }
-
-    #answer-form input[type="submit"] {
-      background-color: transparent;
-      border: 2px solid #fff;
-      color: #fff;
-      padding: 0.5rem 1.5rem;
-      font-size: 1rem;
-      border-radius: 0.5rem;
-      cursor: pointer;
-    }
-
-    #result {
-      margin-top: 1rem;
-      font-weight: bold;
-      color: white;
-    }
-
-    @media screen and (max-width: 600px) {
-      #answer-form input[type="text"] {
-        width: 95%;
-      }
-    }
-  </style>
-</head>
-<body class="is-preload">
-  <div id="wrapper">
-    <!-- Header -->
-    <header id="header">
-      <div class="logo">
-        <span class="icon fa-gem"></span> <!-- ○画像に変更予定 -->
-      </div>
-      <div class="content">
-        <div class="inner">
-          <h1>問題1</h1>
-
-          <!-- 問題文（上下に白線） -->
-          <div class="problem-box">
-            以下の条件に共通する言葉を答えてください。<br>
-            「赤」「青」「黄」
+      <!-- Header -->
+      <header id="header">
+        <div class="logo">
+          <!-- ○マーク（画像に置き換え可） -->
+          <div class="circle-symbol"></div>
+        </div>
+        <div class="content">
+          <div class="inner">
+            <h1>問題1</h1>
+            <div class="problem-box">
+              <p>
+                これは問題文のサンプルです。<br>
+                複数行で記載可能です。<br>
+                実際の問題文をここに入れてください。
+              </p>
+            </div>
           </div>
+        </div>
 
-          <!-- 下の水平線 -->
-          <div class="line-under"></div>
+        <!-- 縦線 -->
+        <div class="answer-line"></div>
 
-          <!-- 中央から縦線 -->
-          <div class="line-vertical"></div>
-
-          <!-- 回答欄フォーム -->
-          <form id="answer-form" onsubmit="checkAnswer(event)">
-            <input type="text" id="answer" placeholder="ここに答えを入力" required />
-            <input type="submit" value="送信" />
-            <p id="result"></p>
+        <!-- 回答欄 -->
+        <div class="answer-area">
+          <form id="answerForm" onsubmit="return checkAnswer();">
+            <input type="text" id="answer" placeholder="答えを入力" required />
+            <button type="submit">送信</button>
           </form>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- Footer -->
-    <footer id="footer">
-      <p class="copyright">&copy; 謎解き制作. Template: <a href="https://html5up.net">HTML5 UP</a>.</p>
-    </footer>
-  </div>
+      <!-- Footer（そのまま） -->
+      <footer id="footer">
+        <p class="copyright">&copy; Ibu 2025. Based on <a href="https://html5up.net/dimension">Dimension</a>.</p>
+      </footer>
 
-  <!-- 背景 -->
-  <div id="bg"></div>
+    </div>
 
-  <!-- Scripts -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/browser.min.js"></script>
-  <script src="assets/js/breakpoints.min.js"></script>
-  <script src="assets/js/util.js"></script>
-  <script src="assets/js/main.js"></script>
-  <script>
-    function checkAnswer(event) {
-      event.preventDefault();
-      const answer = document.getElementById("answer").value.trim();
-      const correct = "信号"; // 正解ワード
-      const result = document.getElementById("result");
-      if (answer === correct) {
-        result.textContent = "正解！";
-        result.style.color = "limegreen";
-      } else {
-        result.textContent = "不正解です。";
-        result.style.color = "crimson";
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      function checkAnswer() {
+        const input = document.getElementById('answer').value.trim();
+        if (input === '正解') {
+          window.location.href = 'mondai2.html';
+        } else {
+          alert('違います。');
+        }
+        return false;
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>
