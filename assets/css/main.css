@@ -1714,3 +1714,22 @@ input, select, textarea {
 .answer-box input[type="submit"]:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.answer-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.answer-area input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.answer-area button {
+  padding: 10px 16px;
+  font-size: 1em;
+}
